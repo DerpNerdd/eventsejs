@@ -9,8 +9,10 @@
 <body>
     <h1>Upcoming Events</h1>
     <ul>
-        <% events.forEach((event, index) => { %>
-            <li><strong><%= event.name %></strong> - <%= event.date %> <br> <%= event.description %></li>
+        <% events.forEach((event) => { %>
+            <li>
+                <%= event.name %> <%= event.date %> <%= event.description %>
+            </li>
         <% }); %>
     </ul>
 
@@ -22,7 +24,7 @@
         <input type="email" name="email" required><br>
         <label>Select Event:</label>
         <select name="event">
-            <% events.forEach((event, index) => { %>
+            <% events.forEach((event) => { %>
                 <option value="<%= event.name %>"><%= event.name %></option>
             <% }); %>
         </select><br>

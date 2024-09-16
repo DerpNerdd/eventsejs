@@ -1,0 +1,57 @@
+[
+  {
+    "name": "Fall Festival",
+    "date": "2024-10-15",
+    "description": "hor hor hor hor hor"
+  },
+  {
+    "name": "Science Fair",
+    "date": "2024-11-01",
+    "description": "Students showcase their science projects and experiments."
+  },
+  {
+    "name": "Winter Concert",
+    "date": "2024-12-10",
+    "description": "An evening of music performed by the school band and choir."
+  },
+  {
+    "name": "Book Fair",
+    "date": "2024-11-25",
+    "description": "Browse and purchase books from various genres and authors."
+  },
+  {
+    "name": "Career Day",
+    "date": "2024-09-30",
+    "description": "Professionals from different fields talk about their careers and experiences."
+  },
+  {
+    "name": "Spring Picnic",
+    "date": "2024-04-20",
+    "description": "Join us for a day of outdoor fun, food, and games at the park."
+  },
+  {
+    "name": "Drama Club Play",
+    "date": "2024-03-15",
+    "description": "The Drama Club presents their annual play, showcasing student talent."
+  },
+  {
+    "name": "Art Exhibition",
+    "date": "2024-05-05",
+    "description": "A display of artwork created by students from various grade levels."
+  },
+  {
+    "name": "Math Olympiad",
+    "date": "2024-02-20",
+    "description": "A competitive event where students solve challenging math problems."
+  },
+  {
+    "name": "Sports Day",
+    "date": "2024-06-01",
+    "description": "A day of athletic events and competitions for all students."
+  },
+  {
+    "name": "Test",
+    "date": "2024-09-16",
+    "description": "AAAAAAAA"
+  }
+]

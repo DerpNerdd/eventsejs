@@ -7,23 +7,33 @@ const port = 5100;
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+const eventsFilePath = path.join(__dirname, 'data/events.json');
 
-const eventsFilePath = path.join(__dirname, 'data', 'events.txt');
+
+app.get('/events', (req, res) => {
+    fs.readFile(path.join(__dirname, 'data/events.json'), 'utf8', (err, data) => {
+        if (err) throw err;
+        const events = JSON.parse(data); 
+        res.render('events', { events }); 
+    });
+});
+
 
 
 const readEvents = () => {
     const data = fs.readFileSync(eventsFilePath, 'utf8');
-    return data.split('\n').filter(event => event).map(event => {
-        const [name, date, description] = event.split('|');
-        return { name, date, description };
-    });
+    return JSON.parse(data);
 };
-
 
 const writeEvents = (events) => {
-    const data = events.map(event => `${event.name}|${event.date}|${event.description}`).join('\n');
+    const data = JSON.stringify(events, null, 2);
     fs.writeFileSync(eventsFilePath, data);
 };
+
+
+app.get('/', (req, res) => {
+    res.redirect('/events');
+});
 
 
 app.get('/events', (req, res) => {
@@ -31,10 +41,12 @@ app.get('/events', (req, res) => {
     res.render('events', { events });
 });
 
+
+
 app.post('/register', (req, res) => {
     const { name, email, event } = req.body;
     const registration = `${name}|${email}|${event}\n`;
-    fs.appendFileSync(path.join(__dirname, 'data', 'registrations.txt'), registration);
+    fs.appendFileSync(path.join(__dirname, 'data', 'registrations.json'), registration);
     res.redirect('/events');
 });
 
