@@ -315,6 +315,17 @@ footer p {
     border-bottom: 2px solid #00FF41;
 }
 
+.admin-table input[type="text"],
+.admin-table input[type="date"],
+.admin-table textarea{
+    background-color: #003300;
+    color: #00FF41;
+}
+
+.admin-table textarea {
+    height: 100px;
+}
+
 .admin-button {
     background-color: #001400;
     color: #00FF41;

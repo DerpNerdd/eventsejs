@@ -35,17 +35,17 @@
                 <tbody>
                     <% events.forEach((event, index) => { %>
                         <tr>
-                            <td><%= event.name %></td>
-                            <td><%= event.date %></td>
-                            <td><%= event.description %></td>
-                            <td>
-                                <form action="/admin/edit/<%= index %>" method="POST" class="inline-form">
+                            <form action="/admin/edit/<%= index %>" method="POST" class="inline-form">
+                                <td><input type="text" name="name" value="<%= event.name %>" required></td>
+                                <td><input type="date" name="date" value="<%= event.date %>" required></td>
+                                <td><textarea name="description" rows="2" required><%= event.description %></textarea></td>
+                                <td>
                                     <button type="submit" class="admin-button">Edit</button>
-                                </form>
-                                <form action="/admin/delete/<%= index %>" method="POST" class="inline-form">
-                                    <button type="submit" class="admin-button">Delete</button>
-                                </form>
-                            </td>
+                                    <form action="/admin/delete/<%= index %>" method="POST" class="inline-form">
+                                        <button type="submit" class="admin-button">Delete</button>
+                                    </form>
+                                </td>
+                            </form>
                         </tr>
                     <% }); %>
                 </tbody>
