@@ -48,5 +48,10 @@
     "name": "Sports Day",
     "date": "2024-06-01",
     "description": "A day of athletic events and competitions for all students."
+  },
+  {
+    "name": "Touch weird kids Day",
+    "date": "2024-09-15",
+    "description": "For those adults who can't stop touching minors, today is your day!"
   }
 ]
