@@ -7,17 +7,35 @@
     <title>Event Registration</title>
 </head>
 <body>
-    <h1>Upcoming Events</h1>
-    <ul>
-        <% events.forEach((event) => { %>
-            <li>
-                <%= event.name %> <%= event.date %> <%= event.description %>
-            </li>
-        <% }); %>
-    </ul>
 
-    <h2>Register for an Event</h2>
-    <form action="/register" method="POST">
+    <%- include('partials/navbar') %>
+
+    <h1>Upcoming Events</h1>
+    <table class="events-table">
+        <thead>
+            <tr>
+                <th>Event Name</th>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% events.forEach((event) => { %>
+                <tr>
+                    <td><%= event.name %></td>
+                    <td><%= event.date %></td>
+                    <td><%= event.description %></td>
+                    <td>
+                        <form action="/participants/<%= event.name %>" method="GET" style="display:inline;">
+                            <button type="submit">Participants</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    <form class="registerform" action="/register" method="POST">
         <label>Name:</label>
         <input type="text" name="name" required><br>
         <label>Email:</label>
@@ -30,5 +48,7 @@
         </select><br>
         <button type="submit">Register</button>
     </form>
+
+    <%- include('partials/footer') %>
 </body>
 </html>

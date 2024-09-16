@@ -7,18 +7,9 @@ const port = 5100;
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+
 const eventsFilePath = path.join(__dirname, 'data/events.json');
-
-
-app.get('/events', (req, res) => {
-    fs.readFile(path.join(__dirname, 'data/events.json'), 'utf8', (err, data) => {
-        if (err) throw err;
-        const events = JSON.parse(data); 
-        res.render('events', { events }); 
-    });
-});
-
-
+const registrationsFilePath = path.join(__dirname, 'data/registrations.json');
 
 const readEvents = () => {
     const data = fs.readFileSync(eventsFilePath, 'utf8');
@@ -30,24 +21,48 @@ const writeEvents = (events) => {
     fs.writeFileSync(eventsFilePath, data);
 };
 
+const readRegistrations = () => {
+    if (!fs.existsSync(registrationsFilePath)) return {};
+    const data = fs.readFileSync(registrationsFilePath, 'utf8');
+    return JSON.parse(data);
+};
+
+const writeRegistrations = (registrations) => {
+    const data = JSON.stringify(registrations, null, 2);
+    fs.writeFileSync(registrationsFilePath, data);
+};
 
 app.get('/', (req, res) => {
-    res.redirect('/events');
+    res.render('home');
 });
-
 
 app.get('/events', (req, res) => {
     const events = readEvents();
     res.render('events', { events });
 });
 
-
-
 app.post('/register', (req, res) => {
     const { name, email, event } = req.body;
-    const registration = `${name}|${email}|${event}\n`;
-    fs.appendFileSync(path.join(__dirname, 'data', 'registrations.json'), registration);
+    const registrations = readRegistrations();
+
+    if (!registrations[event]) {
+        registrations[event] = [];
+    }
+
+    registrations[event].push({ name, email });
+    writeRegistrations(registrations);
     res.redirect('/events');
+});
+
+app.get('/participants/:eventName', (req, res) => {
+    const { eventName } = req.params;
+    const events = readEvents();
+    const registrations = readRegistrations();
+
+    const event = events.find(e => e.name === eventName);
+    const participants = registrations[eventName] || [];
+
+    res.render('participants', { event, participants });
 });
 
 app.get('/admin', (req, res) => {
