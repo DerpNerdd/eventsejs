@@ -157,7 +157,7 @@ footer p {
 .registerform {
     max-width: 500px;
     margin: 0 auto;
-    background-color: #fff;
+    background-color: #fcf3a7;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -173,7 +173,7 @@ footer p {
 .registerform input[type="text"],
 .registerform input[type="email"],
 .registerform select {
-    width: 100%;
+    width: 95%;
     padding: 10px 10px 10px 0px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
@@ -204,6 +204,167 @@ footer p {
     color: #333;
 }
 
+.participants-container {
+    max-width: 800px;
+    margin: 100px auto 40px auto;
+    padding: 20px;
+    background-color: #ffeea1;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.participants-container h1 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.participants-container p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.participants-container h2 {
+    font-size: 28px;
+    color: #333;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.participants-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 500px;
+    text-align: left;
+}
+
+.participants-list li {
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 20px;
+    background-color: #ffc400;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #ffbb00;
+    transform: translateY(-3px);
+}
+
+.admin-container {
+    max-width: 900px;
+    margin: 100px auto 40px auto;
+    padding: 20px;
+    background-color: #000;
+    border-radius: 8px;
+    color: #00FF41;
+    font-family: "Courier New", Courier, monospace;
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
+}
+
+.admin-container h1, .admin-container h2 {
+    text-align: center;
+    color: #00FF41;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 18px;
+    text-align: left;
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+    background-color: #000;
+    color: #00FF41;
+}
+
+.admin-table th, .admin-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #00FF41;
+}
+
+.admin-table thead tr {
+    background-color: #001400;
+}
+
+.admin-table tbody tr {
+    border-bottom: 1px solid #00FF41;
+}
+
+.admin-table tbody tr:nth-of-type(even) {
+    background-color: #001400;
+}
+
+.admin-table tbody tr:last-of-type {
+    border-bottom: 2px solid #00FF41;
+}
+
+.admin-button {
+    background-color: #001400;
+    color: #00FF41;
+    border: 1px solid #00FF41;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.3s;
+    font-family: "Courier New", Courier, monospace;
+}
+
+.admin-button:hover {
+    background-color: #003300;
+    transform: translateY(-3px);
+}
+
+.admin-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #00FF41;
+}
+
+.admin-form input[type="text"],
+.admin-form input[type="date"],
+.admin-form textarea {
+    width: 96%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #00FF41;
+    border-radius: 4px;
+    background-color: #001400;
+    color: #00FF41;
+    font-family: "Courier New", Courier, monospace;
+}
+
+.admin-page {
+    background-color: #000;
+    color: #00FF41;
+}
+
+.admin-page h1, .admin-page h2, .admin-page label, .admin-page th, .admin-page td {
+    color: #00FF41;
+}
+
+.inline-form {
+    display: inline-block;
+    margin-right: 10px;
+}
+
 h1 {
     color: #333;
     text-align: center;
@@ -227,14 +388,3 @@ input, select, button {
     padding: 5px;
 }
 
-button {
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-}

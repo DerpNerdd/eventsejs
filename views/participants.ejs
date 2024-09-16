@@ -7,24 +7,26 @@
     <title>Participants</title>
 </head>
 <body>
-
     <%- include('partials/navbar') %> 
 
+    <div class="participants-container">
+        <h1>Participants for <%= event.name %></h1>
+        <p><strong>Date:</strong> <%= event.date %></p>
+        <p><strong>Description:</strong> <%= event.description %></p>
 
-    <h1>Participants for <%= event.name %></h1>
-    <p><strong>Date:</strong> <%= event.date %></p>
-    <p><strong>Description:</strong> <%= event.description %></p>
-
-    <h2>Participants List</h2>
-    <ul>
-        <% participants.forEach((participant) => { %>
-            <li><%= participant.name %> - <%= participant.email %></li>
-        <% }); %>
-    </ul>
-
-    <a href="/events">Back to Events</a>
+        <h2>Participants List</h2>
+        <ul class="participants-list">
+            <% if (participants.length > 0) { %>
+                <% participants.forEach((participant) => { %>
+                    <li><%= participant.name %> - <%= participant.email %></li>
+                <% }); %>
+            <% } else { %>
+                <li>No participants have registered yet.</li>
+            <% } %>
+        </ul>
+        <a href="/events" class="back-button">Back to Events</a>
+    </div>
 
     <%- include('partials/footer') %> 
-
 </body>
 </html>

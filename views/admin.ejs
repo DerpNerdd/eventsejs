@@ -8,40 +8,68 @@
 </head>
 <body>
 
-    <%- include('partials/navbar') %> 
-
-
-    <h1>Admin Dashboard</h1>
-    <h2>Manage Events</h2>
-    <ul>
-        <% events.forEach((event, index) => { %>
-            <li>
-                <form action="/admin/edit/<%= index %>" method="POST">
-                    <input type="text" name="name" value="<%= event.name %>">
-                    <input type="date" name="date" value="<%= event.date %>">
-                    <input type="text" name="description" value="<%= event.description %>">
-                    <button type="submit">Edit</button>
-                </form>
-                <form action="/admin/delete/<%= index %>" method="POST">
-                    <button type="submit">Delete</button>
-                </form>
-            </li>
-        <% }); %>
-    </ul>
-
-    <h2>Add New Event</h2>
-    <form action="/admin/add" method="POST">
-        <label>Event Name:</label>
-        <input type="text" name="name" required><br>
-        <label>Date:</label>
-        <input type="date" name="date" required><br>
-        <label>Description:</label>
-        <input type="text" name="description" required><br>
-        <button type="submit">Add Event</button>
-    </form>
-
-    <%- include('partials/footer') %> 
-
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/style.css">
+        <title>Admin Dashboard</title>
+    </head>
+    <body class="admin-page"> 
+        <%- include('partials/navbar') %> 
+    
+        <div class="admin-container">
+            <h1>Admin Dashboard</h1>
+    
+            <h2>Manage Events</h2>
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Event Name</th>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% events.forEach((event, index) => { %>
+                        <tr>
+                            <td><%= event.name %></td>
+                            <td><%= event.date %></td>
+                            <td><%= event.description %></td>
+                            <td>
+                                <form action="/admin/edit/<%= index %>" method="POST" class="inline-form">
+                                    <button type="submit" class="admin-button">Edit</button>
+                                </form>
+                                <form action="/admin/delete/<%= index %>" method="POST" class="inline-form">
+                                    <button type="submit" class="admin-button">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+    
+            <h2>Add New Event</h2>
+            <form action="/admin/add" method="POST" class="admin-form">
+                <label for="name">Event Name:</label>
+                <input type="text" id="name" name="name" required>
+    
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+    
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="4" required></textarea>
+    
+                <button type="submit" class="admin-button">Add Event</button>
+            </form>
+        </div>
+    
+        <%- include('partials/footer') %> 
+    </body>
+    </html>
+    
 
 </body>
 </html>
