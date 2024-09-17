@@ -6,70 +6,59 @@
     <link rel="stylesheet" href="/styles.css">
     <title>Admin Dashboard</title>
 </head>
-<body>
+<body class="admin-page"> 
+    <%- include('partials/navbaradmin') %> 
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/style.css">
-        <title>Admin Dashboard</title>
-    </head>
-    <body class="admin-page"> 
-        <%- include('partials/navbar') %> 
-    
-        <div class="admin-container">
-            <h1>Admin Dashboard</h1>
-    
-            <h2>Manage Events</h2>
-            <table class="admin-table">
-                <thead>
+    <div class="admin-container">
+        <h1>Admin Dashboard</h1>
+
+        <h2>Manage Events</h2>
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Event Name</th>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% events.forEach((event, index) => { %>
                     <tr>
-                        <th>Event Name</th>
-                        <th>Date</th>
-                        <th>Description</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% events.forEach((event, index) => { %>
-                        <tr>
-                            <form action="/admin/edit/<%= index %>" method="POST" class="inline-form">
-                                <td><input type="text" name="name" value="<%= event.name %>" required></td>
-                                <td><input type="date" name="date" value="<%= event.date %>" required></td>
-                                <td><textarea name="description" rows="2" required><%= event.description %></textarea></td>
-                                <td>
-                                    <button type="submit" class="admin-button">Edit</button>
-                                    <form action="/admin/delete/<%= index %>" method="POST" class="inline-form">
-                                        <button type="submit" class="admin-button">Delete</button>
-                                    </form>
-                                </td>
+                        <form action="/events/<%= event.id %>" method="POST" class="inline-form">
+                            <td><input type="text" name="name" value="<%= event.name %>" required></td>
+                            <td><input type="date" name="date" value="<%= event.date %>" required></td>
+                            <td><textarea name="description" rows="2" required><%= event.description %></textarea></td>
+                            <td>
+                                <button class="admin-button" type="submit">Edit</button>
+                            </td>
+                        </form>
+                        <td>
+                            <form action="/events/<%= event.id %>/delete" method="POST" style="display:inline;">
+                                <button class="admin-button" type="submit">Delete</button>
                             </form>
-                        </tr>
-                    <% }); %>
-                </tbody>
-            </table>
-    
-            <h2>Add New Event</h2>
-            <form action="/admin/add" method="POST" class="admin-form">
-                <label for="name">Event Name:</label>
-                <input type="text" id="name" name="name" required>
-    
-                <label for="date">Date:</label>
-                <input type="date" id="date" name="date" required>
-    
-                <label for="description">Description:</label>
-                <textarea id="description" name="description" rows="4" required></textarea>
-    
-                <button type="submit" class="admin-button">Add Event</button>
-            </form>
-        </div>
-    
-        <%- include('partials/footer') %> 
-    </body>
-    </html>
-    
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+            
+        </table>
 
+        <h2>Add New Event</h2>
+        <form action="/admin/add" method="POST" class="admin-form">
+            <label for="name">Event Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="4" required></textarea>
+
+            <button type="submit" class="admin-button">Add Event</button>
+        </form>
+    </div>
+
+    <%- include('partials/footer') %> 
 </body>
 </html>

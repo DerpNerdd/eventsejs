@@ -65,32 +65,42 @@ app.get('/participants/:eventName', (req, res) => {
     res.render('participants', { event, participants });
 });
 
+// Route to display the admin page with events
 app.get('/admin', (req, res) => {
     const events = readEvents();
     res.render('admin', { events });
 });
 
+// Route to add a new event
 app.post('/admin/add', (req, res) => {
-    const { name, date, description } = req.body;
     const events = readEvents();
-    events.push({ name, date, description });
+    const newEvent = {
+        id: events.length + 1,
+        name: req.body.name,
+        date: req.body.date,
+        description: req.body.description,
+    };
+    events.push(newEvent);
     writeEvents(events);
     res.redirect('/admin');
 });
 
-app.post('/admin/edit/:id', (req, res) => {
-    const { id } = req.params;
-    const { name, date, description } = req.body;
+// Route to edit an existing event
+app.post('/events/:id', (req, res) => {
     const events = readEvents();
-    events[id] = { name, date, description };
-    writeEvents(events);
+    const eventIndex = events.findIndex(event => event.id == req.params.id);
+    if (eventIndex >= 0) {
+        events[eventIndex].description = req.body.description;
+        events[eventIndex].name = req.body.name;
+        events[eventIndex].date = req.body.date;
+        writeEvents(events);
+    }
     res.redirect('/admin');
 });
 
-app.post('/admin/delete/:id', (req, res) => {
-    const { id } = req.params;
-    const events = readEvents();
-    events.splice(id, 1);
+app.post('/events/:id/delete', (req, res) => {
+    let events = readEvents();
+    events = events.filter(event => event.id != req.params.id);
     writeEvents(events);
     res.redirect('/admin');
 });
