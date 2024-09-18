@@ -1,26 +1,14 @@
 {
-  "Fall Festival": [
+  "Winter Concert": [
     {
       "name": "Alan Sanchez",
       "email": "sanchez1.alan1@gmail.com"
     }
   ],
-  "Sports Day": [
-    {
-      "name": "aaaaaaaa",
-      "email": "aaaaaaaa@gmail.com"
-    }
-  ],
-  "Touch weird kids Day": [
+  "Kid Toucher Day": [
     {
       "name": "Daniel Freeman",
       "email": "dfreem367@west-mec.org"
-    }
-  ],
-  "Octoberfest": [
-    {
-      "name": "Aa",
-      "email": "aa@gmail.com"
     }
   ]
 }

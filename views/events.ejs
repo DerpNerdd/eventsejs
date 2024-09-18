@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles.css">
     <link rel="stylesheet" href="/sass.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
     <title>Event Registration</title>
 </head>
 <body>
@@ -36,19 +38,6 @@
             <% }); %>
         </tbody>
     </table>
-    <!-- <form class="registerform" action="/register" method="POST">
-        <label>Name:</label>
-        <input type="text" name="name" required><br>
-        <label>Email:</label>
-        <input type="email" name="email" required><br>
-        <label>Select Event:</label>
-        <select name="event">
-            <% events.forEach((event) => { %>
-                <option value="<%= event.name %>"><%= event.name %></option>
-            <% }); %>
-        </select><br>
-        <button type="submit">Register</button>
-    </form> -->
     <div class="formcontainer">
 
     <form action="/register" method="POST">
@@ -73,5 +62,7 @@
     </div> 
     <%- include('partials/footer') %>
     
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

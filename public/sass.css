@@ -11,13 +11,17 @@ div, p {
 
 form {
   padding: 16px;
-  width: 320px;
+  width: 380px;
   margin: 0 auto;
+  background-color: #ffb004;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
-
-.segment {
-  padding: 32px 0;
-  text-align: center;
+form .segment h1 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: bold;
 }
 
 button, input {
@@ -87,6 +91,24 @@ button.red {
   color: #AE1100;
 }
 
+select {
+  width: 100%;
+  padding: 15px;
+  margin: 20px 0;
+  border: none;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
+  font-size: 16px;
+  transition: all 0.2s ease-in-out;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+select:hover, select:focus {
+  box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
+}
+
 .input-group {
   display: flex;
   align-items: center;
@@ -95,5 +117,13 @@ button.red {
 .input-group label {
   margin: 0;
   flex: 1;
+}
+
+input, select, textarea {
+  margin-right: 8px;
+  box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
 }
 /*# sourceMappingURL=sass.css.map */

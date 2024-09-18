@@ -40,5 +40,11 @@
     "name": "Art Exhibition",
     "date": "2024-05-05",
     "description": "A display of artwork created by students from various grade levels."
+  },
+  {
+    "id": 8,
+    "name": "Kid Toucher Day",
+    "date": "2024-10-12",
+    "description": "When you are just feeling illegal, go ahead and sign up to touch a certain minor!"
   }
 ]
