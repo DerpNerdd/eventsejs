@@ -377,3 +377,17 @@ After deletion, the admin is redirected to the admin page, and the event is remo
 
 [MIT License](https://choosealicense.com/licenses/mit/)
 
+
+## Contributions
+
+**2024-09-16T15:20:25.000Z**
+- Main basis for the website was created, simple js and ejs code with 0 styling to get all the backend to work
+
+**2024-09-17T15:20:25.000Z**
+- Adding styling to all the ejs pages, very simple styling though. Had to redo app.js and many ejs files to fix bugs.
+
+**2024-09-18T15:20:25.000Z**
+- Finalized all styling to make it more advanced, fix all bugs, got webpage running with no errors and full functionality
+
+**2024-09-25T15:20:25.000Z**
+- Added new documentation to associate with the project
