@@ -373,9 +373,9 @@ After deletion, the admin is redirected to the admin page, and the event is remo
 
 ## License
 
-**This project uses the MTI License**
+**This project uses the GPL-3.0 License**
 
-[MIT License](https://choosealicense.com/licenses/mit/)
+[GPL 3.0 License](https://www.gnu.org/licenses/gpl-3.0.en.html#license-text)
 
 
 ## Contributions
